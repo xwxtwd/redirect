@@ -3,6 +3,7 @@ var router = express.Router();
 var qs = require('querystring');
 /* GET home page. */
 router.get('/', function (req, res, next) {
+  console.log(req.headers['user-agent']);
   if (req.headers['user-agent'].indexOf('micromessenger') !== -1)
     return res.render('index', {title: '跳转获取优惠'});
   const url = req.query.url;
